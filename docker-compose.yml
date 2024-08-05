@@ -48,13 +48,8 @@ services:
       args:
         ELASTIC_VERSION: ${ELASTIC_VERSION}
     volumes:
-      - type: bind
-        source: './elasticsearch/config/elasticsearch.yml'
-        target: /usr/share/elasticsearch/config/elasticsearch.yml
-        read_only: true
-    # volumes:
-    #   - './elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro'
-    #   - elasticsearch:/usr/share/elasticsearch/data:Z
+      - './elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro'
+      - elasticsearch:/usr/share/elasticsearch/data:Z
     ports:
       - 9200:9200
       - 9300:9300
